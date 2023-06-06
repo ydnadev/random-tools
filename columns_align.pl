@@ -8,6 +8,11 @@ use strict;
 my $file1 = $ARGV[0];
 my $file2 = $ARGV[1];
 
+# define separator
+print "Enter column separator: ";
+my $sep = <STDIN>;
+chomp $sep;
+
 # line count var
 my $lc = 0;
 
@@ -36,10 +41,10 @@ for $_(<F2>){
 }
 
 # sort headers
-my @d1 = split("\",\"", $row1);
+my @d1 = split($sep, $row1);
 my @row1_sorted = sort(@d1);
 my $r1 = join("\",\"", @row1_sorted);
-my @d2 = split("\",\"", $row2);
+my @d2 = split($sep, $row2);
 my @row2_sorted = sort(@d2);
 my $r2 = join("\",\"", @row2_sorted);
 

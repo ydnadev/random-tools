@@ -9,7 +9,9 @@ This is a collection of common scripts used for various projects.
 - XML_clean.pl - used for removing tagged elements from XML
 - dates_fix.pl - used for converting dates to ISO 8601 format
 - columns_align.pl - used to find missing columns from headers of 2 files
-    
+ 
+## Example
+
 ### columns_align.pl
 'perl columns_align.pl file1 file2'  
   

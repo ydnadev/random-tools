@@ -25,6 +25,7 @@ for $_(<F1>){
     last if $lc == 1;
     $row1 = $_;
     chomp $row1;
+    $row1 =~ s/"//g;
     $lc++;
 }
 
@@ -37,6 +38,7 @@ for $_(<F2>){
     last if $lc == 1;
     $row2 = $_;
     chomp $row2;
+    $row2 =~ s/"//g;
     $lc++;
 }
 

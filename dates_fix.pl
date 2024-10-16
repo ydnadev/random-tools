@@ -112,20 +112,21 @@ for $_(<IN>){
         }
         # 10-Apr-12
         elsif ($var =~ m/(..)(\/|-)(...)(\/|-)(..)/){
+            print("10-Apr-12\n");
             my ($d,$m,$y) = ($1,$3,$5);
             if ($m =~ m/([A-Z]|[a-z]{3})/){
-                $var =~ s/(J|j)an/01/g;
-                $var =~ s/(F|f)eb/02/g;
-                $var =~ s/(M|m)ar/03/g;
-                $var =~ s/(A|a)pr/04/g;
-                $var =~ s/(M|m)ay/05/g;
-                $var =~ s/(J|j)un/06/g;
-                $var =~ s/(J|j)ul/07/g;
-                $var =~ s/(A|a)ug/08/g;
-                $var =~ s/(S|s)ep/09/g;
-                $var =~ s/(O|o)ct/10/g;
-                $var =~ s/(N|n)ov/11/g;
-                $var =~ s/(D|d)ec/12/g;
+                $m =~ s/(J|j)an/01/g;
+                $m =~ s/(F|f)eb/02/g;
+                $m =~ s/(M|m)ar/03/g;
+                $m =~ s/(A|a)pr/04/g;
+                $m =~ s/(M|m)ay/05/g;
+                $m =~ s/(J|j)un/06/g;
+                $m =~ s/(J|j)ul/07/g;
+                $m =~ s/(A|a)ug/08/g;
+                $m =~ s/(S|s)ep/09/g;
+                $m =~ s/(O|o)ct/10/g;
+                $m =~ s/(N|n)ov/11/g;
+                $m =~ s/(D|d)ec/12/g;
                 if ($d =~ m/[0-9][0-9]/){
                     $var_new = "20$y-$m-$d";
                     push(@data_array,$var_new);
@@ -135,20 +136,21 @@ for $_(<IN>){
         }
         # 1-Apr-12 or 1/Apr/12
         elsif ($var =~ m/(.)(\/|-)(...)(\/|-)([0-9][0-9])/){
+            print("1-Apr-12\n");
             my ($d,$m,$y) = ($1,$3,$5);
             if ($m =~ m/([A-Z]|[a-z]{3})/){
-                $var =~ s/(J|j)an/01/g;
-                $var =~ s/(F|f)eb/02/g;
-                $var =~ s/(M|m)ar/03/g;
-                $var =~ s/(A|a)pr/04/g;
-                $var =~ s/(M|m)ay/05/g;
-                $var =~ s/(J|j)un/06/g;
-                $var =~ s/(J|j)ul/07/g;
-                $var =~ s/(A|a)ug/08/g;
-                $var =~ s/(S|s)ep/09/g;
-                $var =~ s/(O|o)ct/10/g;
-                $var =~ s/(N|n)ov/11/g;
-                $var =~ s/(D|d)ec/12/g;
+                $m =~ s/(J|j)an/01/g;
+                $m =~ s/(F|f)eb/02/g;
+                $m =~ s/(M|m)ar/03/g;
+                $m =~ s/(A|a)pr/04/g;
+                $m =~ s/(M|m)ay/05/g;
+                $m =~ s/(J|j)un/06/g;
+                $m =~ s/(J|j)ul/07/g;
+                $m =~ s/(A|a)ug/08/g;
+                $m =~ s/(S|s)ep/09/g;
+                $m =~ s/(O|o)ct/10/g;
+                $m =~ s/(N|n)ov/11/g;
+                $m =~ s/(D|d)ec/12/g;
                 if ($d =~ m/[0-9]/){
                     $var_new = "20$y-$m-0$d";
                     push(@data_array,$var_new);

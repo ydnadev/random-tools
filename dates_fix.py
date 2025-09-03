@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import re
 from io import StringIO
+import csv
 
 
 # Helper function to reformat dates
@@ -90,11 +91,13 @@ uploaded_file = st.file_uploader("Drop your CSV file here", type=["csv", "txt"])
 
 if uploaded_file:
     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+    data_in = csv.reader(stringio)
     data = []
-    for line in stringio:
-        items = [clean_date(item.strip()) for item in line.strip().split(",")]
-        data.append(items)
-    df = pd.DataFrame(data)
+    cleaned_data = [[clean_date(item) for item in row] for row in data_in]
+    df = pd.DataFrame(cleaned_data)
+    # Set first row as column headers, then drop it from the DataFrame
+    df.columns = df.iloc[0].tolist()
+    df = df[1:].reset_index(drop=True)
     st.dataframe(df)
-    csv = df.to_csv(index=False, header=False)
+    csv = df.to_csv(index=False, header=True)
     st.download_button("Download cleaned file", csv, "dates_fixed.csv", "text/csv")
